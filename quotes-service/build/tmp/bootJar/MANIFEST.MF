@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Start-Class: io.pivotal.quotes.QuotesApplication
+Main-Class: org.springframework.boot.loader.JarLauncher
+

@@ -1,0 +1,20 @@
+---
+applications:
+- name: quotes
+  path: build/libs/quotes.jar
+  services: [ discovery-service, circuit-breaker-dashboard ]
+  timeout: 180
+  instances: 1
+  memory: 1G
+  random-route: true
+  env:
+    pivotal_quotes_quote_url: https://api.iextrading.com/1.0/stock/{symbol}/quote
+    pivotal_quotes_quotes_url: https://api.iextrading.com/1.0/stock/market/batch?symbols={symbols}&types=quote
+    pivotal_quotes_companies_url: http://dev.markitondemand.com/Api/v2/Lookup/json?input={name}
+
+# When deployed to environments with self-signed certs, you have to reference your api here.  See
+# http://docs.pivotal.io/spring-cloud-services/1-5/common/service-registry/writing-client-applications.html
+# Running /scripts/doItAll.sh or 4_addTrustCerts.sh will take care of this
+#  env:
+#    TRUST_CERTS: api.your-system-domain.com
+

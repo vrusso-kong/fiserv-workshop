@@ -1,0 +1,8 @@
+spring:
+  application:
+     name: quotes-service
+#pivotal:
+#  quotes:
+#    quote_url: https://api.iextrading.com/1.0/stock/{symbol}/quote
+#    quotes_url: https://api.iextrading.com/1.0/stock/market/batch?symbols={symbols}&types=quote
+#    company_url: http://dev.markitondemand.com/Api/v2/Lookup/json?input={name}

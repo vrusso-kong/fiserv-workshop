@@ -1,0 +1,20 @@
+spring:
+  application:
+     name: web-service
+info:
+  build:
+    group: ${group}
+    name: ${name}
+    description: ${description}
+    version: ${version}
+
+eureka:
+  client:
+    registerWithEureka: true
+    registryFetchIntervalSeconds: 10
+pivotal:
+  summary:
+    quotes: 3
+    symbols:
+      it: ORCL,IBM,INTC,AMD,HPQ,CSCO,AAPL
+      fs: JPM,C,MS,BAC,GS,WFC,BK
