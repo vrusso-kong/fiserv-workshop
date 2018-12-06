@@ -1,8 +1,50 @@
 spring:
   application:
      name: quotes-service
-#pivotal:
-#  quotes:
-#    quote_url: https://api.iextrading.com/1.0/stock/{symbol}/quote
-#    quotes_url: https://api.iextrading.com/1.0/stock/market/batch?symbols={symbols}&types=quote
-#    company_url: http://dev.markitondemand.com/Api/v2/Lookup/json?input={name}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    baseUrl: http://zipkin-server/
+    sender:
+      type: web
+
+info:
+  build:
+    group: ${group}
+    name: ${name}
+    description: ${description}
+    version: ${version}
+
+ribbon:
+  IsSecure: false
+pivotal:
+  quotesService:
+    name: quotes-service
+  userService:
+    name: user-service
+  accountsService:
+    name: accounts-service
+  portfolioService:
+    name: portfolio-service
+  analyticsService:
+    name: analytics-service
+logging:
+  level:
+    io:
+      pivotal: DEBUG
+    com:
+      netflix: FATAL
+    org:
+      springframework:
+        web: WARN
+        cloud: WARN
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -5,6 +5,13 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    baseUrl: http://zipkin-server/
+    sender:
+      type: web
 
 info:
   build:
@@ -13,3 +20,31 @@ info:
     description: ${description}
     version: ${version}
 
+ribbon:
+  IsSecure: false
+pivotal:
+  quotesService:
+    name: quotes-service
+  userService:
+    name: user-service
+  accountsService:
+    name: accounts-service
+  portfolioService:
+    name: portfolio-service
+  analyticsService:
+    name: analytics-service
+logging:
+  level:
+    io:
+      pivotal: DEBUG
+    com:
+      netflix: FATAL
+    org:
+      springframework:
+        web: WARN
+        cloud: WARN
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
