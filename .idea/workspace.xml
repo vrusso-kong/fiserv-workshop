@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c36fca9-51f3-4769-a628-640ba1cc4545" name="Default Changelist" comment="" />
+    <list default="true" id="5c36fca9-51f3-4769-a628-640ba1cc4545" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +37,7 @@
           <entry key="Groovy" value="1" />
           <entry key="JAVA" value="22" />
           <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="YAML" value="17" />
         </counts>
       </usages-collector>
@@ -48,6 +51,7 @@
         <counts>
           <entry key="JAVA" value="313" />
           <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="35" />
           <entry key="YAML" value="108" />
         </counts>
       </usages-collector>
@@ -88,11 +92,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portfolio-service/src/main/java/io/pivotal/portfolio/service/PortfolioService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+            <state relative-caret-position="660">
+              <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -113,6 +126,9 @@
       <find>getQuotes</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -129,6 +145,7 @@
         <option value="$PROJECT_DIR$/portfolio-service/manifest.yml" />
         <option value="$PROJECT_DIR$/accounts-service/manifest.yml" />
         <option value="$PROJECT_DIR$/quotes-service/src/main/java/io/pivotal/quotes/controller/QuoteV1Controller.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -245,6 +262,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -259,120 +277,6 @@
               <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
               <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="pivotal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="pivotal" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="pivotal" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-              <item name="pivotal" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -380,7 +284,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544131214182" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544132077163" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -644,8 +548,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portfolio-service/src/main/java/io/pivotal/portfolio/service/PortfolioService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+        <state relative-caret-position="660">
+          <caret line="62" column="7" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
