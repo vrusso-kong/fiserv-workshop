@@ -1,15 +1,3 @@
 spring:
   application:
     name: accounts-service
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      ddl-auto: update
-
-info:
-  build:
-    group: ${group}
-    name: ${name}
-    description: ${description}
-    version: ${version}
-
