@@ -59,23 +59,17 @@ public class QuoteV1Controller {
      *   - Make sure you split your query against the "," character
      *   - Reference the the getQuotes method in the Quotes Service
 	 */
-	@RequestMapping(value = "/quotes", method = RequestMethod.GET)
+
 	public ResponseEntity<List<Quote>> getQuotes(@RequestParam(value="q", required=false) String query) throws SymbolNotFoundException{
-		logger.debug("received Quote query for: "+ query);
-		if (query == null) {
-			//return empty list.
-			return new ResponseEntity<List<Quote>>(new ArrayList<Quote>(), getNoCacheHeaders(), HttpStatus.OK);
-		}
-		List<Quote> quotes;
-		String[] splitQuery = query.split(",");
-		if (splitQuery.length > 1) {
-			quotes = service.getQuotes(query);
-		} else {
-			quotes = new ArrayList<>();
-			quotes.add(service.getQuote(splitQuery[0]));
-		}
-		logger.info(String.format("Retrieved symbols: %s with quotes {}", query, quotes));
-        return new ResponseEntity<List<Quote>>(quotes, getNoCacheHeaders(), HttpStatus.OK);
+		//logger.debug("received Quote query for: "+ query);
+
+        if (query == null) {
+            //return empty list.
+            return new ResponseEntity<List<Quote>>(new ArrayList<Quote>(), getNoCacheHeaders(), HttpStatus.OK);
+        }
+
+		//logger.info(String.format("Retrieved symbols: %s with quotes {}", query, quotes));
+        return null;
 	}
 
 	/**

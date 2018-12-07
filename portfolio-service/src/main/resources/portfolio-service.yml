@@ -1,4 +1,6 @@
 spring:
-#  profiles.active: local
   application:
      name: portfolio-service
+  jpa:
+     hibernate:
+        ddl-auto: update
