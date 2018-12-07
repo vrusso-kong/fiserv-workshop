@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c36fca9-51f3-4769-a628-640ba1cc4545" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio-service/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio-service/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio-service/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio-service/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio-service/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio-service/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio-service/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio-service/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio-service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio-service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio-service/build/resources/main/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio-service/build/resources/main/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/quotes-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quotes-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/quotes-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-ui/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web-ui/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +37,7 @@
           <entry key="Groovy" value="6" />
           <entry key="JAVA" value="22" />
           <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="YAML" value="24" />
         </counts>
       </usages-collector>
@@ -99,11 +84,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portfolio-service/src/main/resources/bootstrap.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -147,7 +141,6 @@
         <option value="$PROJECT_DIR$/portfolio-service/manifest.yml" />
         <option value="$PROJECT_DIR$/accounts-service/manifest.yml" />
         <option value="$PROJECT_DIR$/quotes-service/src/main/java/io/pivotal/quotes/controller/QuoteV1Controller.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/portfolio-service/build.gradle" />
         <option value="$PROJECT_DIR$/portfolio-service/src/main/resources/bootstrap.yml" />
         <option value="$PROJECT_DIR$/quotes-service/build.gradle" />
@@ -158,13 +151,14 @@
         <option value="$PROJECT_DIR$/user-service/src/main/resources/bootstrap.yml" />
         <option value="$PROJECT_DIR$/web-ui/build.gradle" />
         <option value="$PROJECT_DIR$/web-ui/src/main/resources/bootstrap.yml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="1372" />
+    <option name="height" value="832" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -289,11 +283,6 @@
               <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
               <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="fiserv-workshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fiserv-workshop" type="462c0819:PsiDirectoryNode" />
-              <item name="quotes-service" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -301,7 +290,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544135937831" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544194252266" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -339,10 +328,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="1372" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="832" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -487,13 +476,6 @@
     <entry file="file://$PROJECT_DIR$/portfolio-service/src/main/java/io/pivotal/portfolio/service/PortfolioRepositoryService.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/quotes-service/src/main/resources/bootstrap.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -602,6 +584,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
