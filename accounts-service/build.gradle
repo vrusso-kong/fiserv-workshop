@@ -10,6 +10,10 @@ buildscript {
     }
 }
 
+plugins {
+  id "com.bmuschko.docker-remote-api" version "4.1.0"
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -33,6 +37,12 @@ repositories {
 ext {
     springCloudServicesVersion = '2.0.1.RELEASE'
     springCloudVersion = 'Finchley.RELEASE'
+    	projectGroupId = project.group
+	projectArtifactId = project.name
+	projectVersion = project.version
+	stubrunnerIds = 'com.example.github:accounts-service'
+	dockerImagePrefix = getProp("DOCKER_REGISTRY_ORGANIZATION") ?: "scpipelines"
+	dockerImageName = "${dockerImagePrefix}/${project.name}"
 }
 
 dependencies {
@@ -61,4 +71,86 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
+// sc-pipelines & k8s
+// example of docker setup
+apply plugin: 'com.bmuschko.docker-remote-api'
 
+import com.bmuschko.gradle.docker.tasks.image.*
+
+docker {
+	registryCredentials {
+		url = getProp('DOCKER_REGISTRY_URL') ?: 'https://index.docker.io/v1/'
+		username = getProp('DOCKER_USERNAME') ?: "changeme"
+		password = getProp('DOCKER_PASSWORD') ?: "changeme"
+		email = getProp('DOCKER_EMAIL') ?: "changeme"
+	}
+}
+
+task createDockerfile(type: Dockerfile) {
+	destFile = project.file('build/libs/Dockerfile')
+	from 'frolvlad/alpine-oraclejdk8:slim'
+	String sysProps = getProp("SYSTEM_PROPS") ?: "-Dfoo=bar"
+	environmentVariable("SYSTEM_PROPS", sysProps)
+	addFile("/${project.name}-${project.version}.jar", "/")
+	entryPoint("sh", "-c", "java \${SYSTEM_PROPS} -Djava.security.egd=file:/dev/./urandom -jar /${project.name}-${project.version}.jar")
+}
+
+task buildImage(type: DockerBuildImage) {
+	dependsOn([createDockerfile, jar, check])
+	//inputDir = createDockerfile.destFile.parentFile.path
+	tags = ["${dockerImageName}".toString()] as Set<String>
+}
+
+task tagImage(type: DockerTagImage) {
+	dependsOn([buildImage])
+	targetImageId { buildImage.getImageId() }
+	repository = "${dockerImageName}".toString()
+	tag = project.version
+}
+
+task pushLatestImage(type: DockerPushImage) {
+	dependsOn([tagImage])
+	imageName = "${dockerImageName}".toString()
+	tag = "latest"
+}
+
+task pushConcreteImage(type: DockerPushImage) {
+	dependsOn([tagImage])
+	imageName = "${dockerImageName}".toString()
+	tag = project.version
+}
+
+task pushImages {
+	dependsOn([pushLatestImage, pushConcreteImage])
+}
+
+deploy.dependsOn pushImages
+
+
+publishing {
+	repositories {
+		maven {
+			url getProp('REPO_WITH_BINARIES') ?: 'http://localhost:8081/artifactory/libs-release-local'
+			credentials {
+				username getProp('M2_SETTINGS_REPO_USERNAME') ?: 'admin'
+				password getProp('M2_SETTINGS_REPO_PASSWORD') ?: 'password'
+			}
+		}
+	}
+	publications {
+		mavenJava(MavenPublication) {
+			artifactId project.name
+			from components.java
+		}
+	}
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
+
+String getProp(String propName) {
+	return hasProperty(propName) ?
+			(getProperty(propName) ?: System.properties[propName]) : System.properties[propName] ?:
+			System.getenv(propName)
+}
