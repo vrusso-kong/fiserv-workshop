@@ -1,0 +1,5 @@
+spring:
+  zipkin:
+    baseUrl: http://zipkin-server/
+    sender:
+      type: web
