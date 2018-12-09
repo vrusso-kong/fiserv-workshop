@@ -21,10 +21,10 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'maven-publish'
 apply from: 'gradle/pipeline.gradle'
 
-bootJar {
+/* bootJar {
     baseName = 'accounts'
     version = "" // omit the version from the war file name
-}
+} */
 
 description = "Micro-service to deal with accounts and user logins"
 sourceCompatibility = 1.8
