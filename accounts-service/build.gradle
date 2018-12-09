@@ -132,9 +132,9 @@ deploy.dependsOn pushImages
 publishing {
 	repositories {
 		maven {
-			url getProp('REPO_WITH_BINARIES') ?: 'http://localhost:8081/artifactory/libs-release-local'
+			url getProp('REPO_WITH_BINARIES') ?: 'https://dl.bintray.com/mwright-pivotal/bank'
 			credentials {
-				username getProp('M2_SETTINGS_REPO_USERNAME') ?: 'admin'
+				username getProp('M2_SETTINGS_REPO_USERNAME') ?: 'mwright-pivotal'
 				password getProp('M2_SETTINGS_REPO_PASSWORD') ?: 'password'
 			}
 		}
