@@ -29,7 +29,7 @@ apply from: 'gradle/pipeline.gradle'
 description = "Micro-service to deal with accounts and user logins"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-group = 'com.example.github'
+group = 'bank'
 version = getProp('newVersion') ?: '0.0.1-SNAPSHOT'
 
 repositories {
@@ -42,7 +42,7 @@ ext {
     projectGroupId = project.group
 	projectArtifactId = project.name
 	projectVersion = project.version
-	stubrunnerIds = 'com.example.github:accounts-service'
+	stubrunnerIds = 'bank:accounts-service'
 	dockerImagePrefix = getProp("DOCKER_REGISTRY_ORGANIZATION") ?: "scpipelines"
 	dockerImageName = "${dockerImagePrefix}/${project.name}"
 }
@@ -132,7 +132,7 @@ deploy.dependsOn pushImages
 publishing {
 	repositories {
 		maven {
-			url getProp('REPO_WITH_BINARIES') ?: 'https://dl.bintray.com/mwright-pivotal/bank'
+			url getProp('REPO_WITH_BINARIES') ?: 'https://dl.bintray.com/mwright-pivotal/'
 			credentials {
 				username getProp('M2_SETTINGS_REPO_USERNAME') ?: 'mwright-pivotal'
 				password getProp('M2_SETTINGS_REPO_PASSWORD') ?: 'password'
