@@ -29,6 +29,8 @@ bootJar {
 description = "Micro-service to deal with accounts and user logins"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+group = 'com.example.github'
+version = getProp('newVersion') ?: '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -37,7 +39,7 @@ repositories {
 ext {
     springCloudServicesVersion = '2.0.1.RELEASE'
     springCloudVersion = 'Finchley.RELEASE'
-    	projectGroupId = project.group
+    projectGroupId = project.group
 	projectArtifactId = project.name
 	projectVersion = project.version
 	stubrunnerIds = 'com.example.github:accounts-service'
@@ -79,10 +81,10 @@ import com.bmuschko.gradle.docker.tasks.image.*
 
 docker {
 	registryCredentials {
-		url = getProp('DOCKER_REGISTRY_URL') ?: 'https://index.docker.io/v1/'
-		username = getProp('DOCKER_USERNAME') ?: "changeme"
-		password = getProp('DOCKER_PASSWORD') ?: "changeme"
-		email = getProp('DOCKER_EMAIL') ?: "changeme"
+		url = getProp('DOCKER_REGISTRY_URL') ?: 'https://harbor.sys.pks.wrightcode.io'
+		username = getProp('DOCKER_USERNAME') ?: "admin"
+		password = getProp('DOCKER_PASSWORD') ?: "p1v0tal"
+		email = getProp('DOCKER_EMAIL') ?: "mwright@pivotal.io"
 	}
 }
 
