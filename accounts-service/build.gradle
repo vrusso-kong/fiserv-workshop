@@ -29,7 +29,7 @@ apply from: 'gradle/pipeline.gradle'
 description = "Micro-service to deal with accounts and user logins"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-group = 'bank'
+group = 'io.pivotal.accounts'
 version = getProp('newVersion') ?: '0.0.1-SNAPSHOT'
 
 repositories {
@@ -42,7 +42,7 @@ ext {
     projectGroupId = project.group
 	projectArtifactId = project.name
 	projectVersion = project.version
-	stubrunnerIds = 'bank:accounts-service'
+	stubrunnerIds = 'io.pivotal.accounts:accounts-service'
 	dockerImagePrefix = getProp("DOCKER_REGISTRY_ORGANIZATION") ?: "scpipelines"
 	dockerImageName = "${dockerImagePrefix}/${project.name}"
 }
