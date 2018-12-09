@@ -12,6 +12,7 @@ buildscript {
 
 plugins {
   id "com.bmuschko.docker-remote-api" version "4.1.0"
+  id "com.jfrog.bintray" version "1.8.4"
 }
 
 apply plugin: 'java'
@@ -34,6 +35,17 @@ version = getProp('newVersion') ?: '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+bintray {
+    user = 'mwright-pivotal'
+    key = '9e2a829e92b5ddfde0352e9113e44540057843cc'
+    pkg {
+        repo = 'bank'
+        name = 'accounts-service'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/vrusso-pivotal/fiserv-workshop'
+    }
 }
 
 ext {
@@ -126,22 +138,27 @@ task pushImages {
 	dependsOn([pushLatestImage, pushConcreteImage])
 }
 
+tasks.matching { it.name == "publishMavenJavaPublicationToMavenRepository" }.all {
+    onlyIf { false }
+}
+
 deploy.dependsOn pushImages
 
 
 publishing {
 	repositories {
 		maven {
-			url getProp('REPO_WITH_BINARIES') ?: 'https://dl.bintray.com/mwright-pivotal/'
+			url getProp('REPO_WITH_BINARIES') ?: 'https://api.bintray.com/maven/mwright-pivotal/bank/accounts-service'
 			credentials {
 				username getProp('M2_SETTINGS_REPO_USERNAME') ?: 'mwright-pivotal'
-				password getProp('M2_SETTINGS_REPO_PASSWORD') ?: 'password'
+				password getProp('M2_SETTINGS_REPO_PASSWORD') ?: '9e2a829e92b5ddfde0352e9113e44540057843cc'
 			}
 		}
 	}
 	publications {
 		mavenJava(MavenPublication) {
 			artifactId project.name
+			groupId 'io.pivotal.accounts'
 			from components.java
 		}
 	}
