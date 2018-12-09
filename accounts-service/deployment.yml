@@ -21,17 +21,6 @@ spec:
             value: "8080"
           - name: SYSTEM_PROPS # additional options to be passed to the running process
             value: "{{systemProps}}"
-          - name: MYSQL_DB_USER
-            valueFrom:
-              secretKeyRef:
-                # Naming convention of secrets in sc-pipelines
-                name: mysql-{{appName}}
-                key: username
-          - name: MYSQL_DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: mysql-{{appName}}
-                key: password
           livenessProbe:
             httpGet:
               path: /health
