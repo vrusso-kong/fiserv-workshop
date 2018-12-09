@@ -57,8 +57,8 @@ ext {
     projectGroupId = project.group
 	projectArtifactId = project.name
 	projectVersion = project.version
-	stubrunnerIds = 'io.pivotal.accounts:accounts-service'
-	dockerImagePrefix = getProp("DOCKER_REGISTRY_ORGANIZATION") ?: "scpipelines"
+	stubrunnerIds = 'harbor.sys.pks.wrightcopde.io/io.pivotal.accounts:accounts-service'
+	dockerImagePrefix = getProp("DOCKER_REGISTRY_ORGANIZATION") ?: "io.pivotal.accounts"
 	dockerImageName = "${dockerImagePrefix}/${project.name}"
 }
 
@@ -93,7 +93,7 @@ dependencyManagement {
 import com.bmuschko.gradle.docker.tasks.image.*
 
 docker {
-	url = 'https://harbor.sys.pks.wrightcode.io'
+	//url = 'https://harbor.sys.pks.wrightcode.io'
 	registryCredentials {
 		url = getProp('DOCKER_REGISTRY_URL') ?: 'https://harbor.sys.pks.wrightcode.io'
 		username = getProp('DOCKER_USERNAME') ?: "admin"
@@ -102,6 +102,7 @@ docker {
 	}
 	springBootApplication {
         baseImage = 'openjdk:8-alpine'
+        tag = 'harbor.sys.pks.wrightcode.io/io.pivotal.accounts/accounts-service:'.concat(project.version)
     }
 }
 
