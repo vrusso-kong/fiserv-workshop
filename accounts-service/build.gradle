@@ -116,7 +116,7 @@ task createDockerfile(type: Dockerfile) {
 }
 
 task buildImage(type: DockerBuildImage) {
-	dockerBuildImage
+	dependsOn([dockerBuildImage])
 }
 
 task tagImage(type: DockerTagImage) {
@@ -146,7 +146,11 @@ tasks.matching { it.name == "publishMavenJavaPublicationToMavenRepository" }.all
     onlyIf { false }
 }
 
-deploy.dependsOn pushImages
+task pushImages2 {
+	dependsOn([dockerBuildImage,dockerPushImage])
+}
+
+deploy.dependsOn pushImages2
 
 
 publishing {
