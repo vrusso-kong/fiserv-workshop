@@ -7,11 +7,13 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'com.bmuschko:gradle-docker-plugin:4.1.0'
+        classpath 'com.aries:docker-java-shaded:3.1.0-rc-5'
     }
 }
 
 plugins {
-  id "com.bmuschko.docker-remote-api" version "4.1.0"
+  id "com.bmuschko.docker-spring-boot-application" version "4.1.0"
   id "com.jfrog.bintray" version "1.8.4"
 }
 
@@ -35,6 +37,7 @@ version = getProp('newVersion') ?: '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 bintray {
@@ -87,17 +90,19 @@ dependencyManagement {
 }
 // sc-pipelines & k8s
 // example of docker setup
-apply plugin: 'com.bmuschko.docker-remote-api'
-
 import com.bmuschko.gradle.docker.tasks.image.*
 
 docker {
+	url = 'https://harbor.sys.pks.wrightcode.io'
 	registryCredentials {
 		url = getProp('DOCKER_REGISTRY_URL') ?: 'https://harbor.sys.pks.wrightcode.io'
 		username = getProp('DOCKER_USERNAME') ?: "admin"
 		password = getProp('DOCKER_PASSWORD') ?: "p1v0tal"
 		email = getProp('DOCKER_EMAIL') ?: "mwright@pivotal.io"
 	}
+	springBootApplication {
+        baseImage = 'openjdk:8-alpine'
+    }
 }
 
 task createDockerfile(type: Dockerfile) {
@@ -110,9 +115,7 @@ task createDockerfile(type: Dockerfile) {
 }
 
 task buildImage(type: DockerBuildImage) {
-	dependsOn([createDockerfile, jar, check])
-	//inputDir = createDockerfile.destFile.parentFile.path
-	tags = ["${dockerImageName}".toString()] as Set<String>
+	dockerBuildImage
 }
 
 task tagImage(type: DockerTagImage) {
