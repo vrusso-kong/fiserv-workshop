@@ -143,7 +143,7 @@ task pushImages {
 }
 
 tasks.matching { it.name == "publishMavenJavaPublicationToMavenRepository" }.all {
-    onlyIf { false }
+    onlyIf { true }
 }
 
 task pushImages2 {
@@ -156,10 +156,10 @@ deploy.dependsOn pushImages2
 publishing {
 	repositories {
 		maven {
-			url getProp('REPO_WITH_BINARIES') ?: 'https://api.bintray.com/maven/mwright-pivotal/bank/accounts-service'
+			url getProp('REPO_WITH_BINARIES') ?: 'http://192.168.0.5:8090/artifactory/libs-snapshot-local'
 			credentials {
-				username getProp('M2_SETTINGS_REPO_USERNAME') ?: 'mwright-pivotal'
-				password getProp('M2_SETTINGS_REPO_PASSWORD') ?: '9e2a829e92b5ddfde0352e9113e44540057843cc'
+				username getProp('M2_SETTINGS_REPO_USERNAME') ?: 'admin'
+				password getProp('M2_SETTINGS_REPO_PASSWORD') ?: 'password'
 			}
 		}
 	}
