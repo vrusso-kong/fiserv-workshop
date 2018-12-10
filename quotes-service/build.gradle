@@ -7,30 +7,47 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'com.bmuschko:gradle-docker-plugin:4.1.0'
     }
+}
+
+plugins {
+  id "com.bmuschko.docker-spring-boot-application" version "4.1.0"
+  id "com.jfrog.bintray" version "1.8.4"
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'maven-publish'
+apply from: 'gradle/pipeline.gradle'
 
-bootJar {
+/* bootJar {
     baseName = 'quotes'
     version = ""  // omit the version from the war file name
-}
+} */
 
 description = "Micro-service to retrieve up to date quotes"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+group = 'io.pivotal.quotes'
+version = getProp('newVersion') ?: '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 ext {
     springCloudServicesVersion = '2.0.1.RELEASE'
     springCloudVersion = 'Finchley.RELEASE'
+    projectGroupId = project.group
+	projectArtifactId = project.name
+	projectVersion = project.version
+	stubrunnerIds = 'harbor.sys.pks.wrightcode.io/io.pivotal.quotes:quotes-service'
+	dockerImagePrefix = getProp("DOCKER_REGISTRY_ORGANIZATION") ?: "io.pivotal.quotes"
+	dockerImageName = "${dockerImagePrefix}/${project.name}"
 }
 
 dependencies {
@@ -55,4 +72,94 @@ dependencyManagement {
         mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:${springCloudServicesVersion}"
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
+}
+
+// sc-pipelines & k8s
+// example of docker setup
+import com.bmuschko.gradle.docker.tasks.image.*
+
+docker {
+	//url = 'https://harbor.sys.pks.wrightcode.io'
+	registryCredentials {
+		url = getProp('DOCKER_REGISTRY_URL') ?: 'https://harbor.sys.pks.wrightcode.io'
+		username = getProp('DOCKER_USERNAME') ?: "admin"
+		password = getProp('DOCKER_PASSWORD') ?: ""
+		email = getProp('DOCKER_EMAIL') ?: "mwright@pivotal.io"
+	}
+	springBootApplication {
+        baseImage = 'openjdk:8-alpine'
+        tag = 'harbor.sys.pks.wrightcode.io/io.pivotal.accounts/accounts-service:'.concat(project.version)
+    }
+}
+
+task createDockerfile(type: Dockerfile) {
+	destFile = project.file('build/libs/Dockerfile')
+	from 'frolvlad/alpine-oraclejdk8:slim'
+	String sysProps = getProp("SYSTEM_PROPS") ?: "-Dfoo=bar"
+	environmentVariable("SYSTEM_PROPS", sysProps)
+	addFile("/${project.name}-${project.version}.jar", "/")
+	entryPoint("sh", "-c", "java \${SYSTEM_PROPS} -Djava.security.egd=file:/dev/./urandom -jar /${project.name}-${project.version}.jar")
+}
+
+task buildImage(type: DockerBuildImage) {
+	dependsOn([dockerBuildImage])
+}
+
+task tagImage(type: DockerTagImage) {
+	dependsOn([buildImage])
+	targetImageId { buildImage.getImageId() }
+	repository = "${dockerImageName}".toString()
+	tag = project.version
+}
+
+task pushLatestImage(type: DockerPushImage) {
+	dependsOn([tagImage])
+	imageName = "${dockerImageName}".toString()
+	tag = "latest"
+}
+
+task pushConcreteImage(type: DockerPushImage) {
+	dependsOn([tagImage])
+	imageName = "${dockerImageName}".toString()
+	tag = project.version
+}
+
+task pushImages {
+	dependsOn([pushLatestImage, pushConcreteImage])
+}
+
+tasks.matching { it.name == "publishMavenJavaPublicationToMavenRepository" }.all {
+    onlyIf { true }
+}
+
+task pushImages2 {
+	dependsOn([dockerBuildImage,dockerPushImage])
+}
+
+deploy.dependsOn pushImages2
+
+
+publishing {
+	repositories {
+		maven {
+			url getProp('REPO_WITH_BINARIES') ?: 'http://192.168.0.5:8090/artifactory/libs-snapshot-local'
+			credentials {
+				username getProp('M2_SETTINGS_REPO_USERNAME') ?: 'admin'
+				password getProp('M2_SETTINGS_REPO_PASSWORD') ?: 'password'
+			}
+		}
+	}
+	publications {
+		mavenJava(MavenPublication) {
+			artifactId project.name
+			groupId 'io.pivotal.quotes'
+			from components.java
+		}
+	}
+}
+
+String getProp(String propName) {
+	return hasProperty(propName) ?
+			(getProperty(propName) ?: System.properties[propName]) : System.properties[propName] ?:
+			System.getenv(propName)
 }

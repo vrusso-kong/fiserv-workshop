@@ -57,7 +57,7 @@ ext {
     projectGroupId = project.group
 	projectArtifactId = project.name
 	projectVersion = project.version
-	stubrunnerIds = 'harbor.sys.pks.wrightcopde.io/io.pivotal.accounts:accounts-service'
+	stubrunnerIds = 'harbor.sys.pks.wrightcode.io/io.pivotal.accounts:accounts-service'
 	dockerImagePrefix = getProp("DOCKER_REGISTRY_ORGANIZATION") ?: "io.pivotal.accounts"
 	dockerImageName = "${dockerImagePrefix}/${project.name}"
 }
@@ -97,7 +97,7 @@ docker {
 	registryCredentials {
 		url = getProp('DOCKER_REGISTRY_URL') ?: 'https://harbor.sys.pks.wrightcode.io'
 		username = getProp('DOCKER_USERNAME') ?: "admin"
-		password = getProp('DOCKER_PASSWORD') ?: "p1v0tal"
+		password = getProp('DOCKER_PASSWORD') ?: ""
 		email = getProp('DOCKER_EMAIL') ?: "mwright@pivotal.io"
 	}
 	springBootApplication {
