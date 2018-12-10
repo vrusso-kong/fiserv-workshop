@@ -55,7 +55,7 @@ groups:
 - name: Deploy Pivotal Bank
   jobs:
   - generate-version
-  - accounts-service
+  - quotes-service
   - test-deploy
   - test-smoke
   - test-rollback-deploy
@@ -87,7 +87,7 @@ jobs:
     params:
       file: keyvalout/keyval.properties
 
-- name: accounts-service
+- name: quotes-service
   serial: true
   public: false
   plan:
@@ -123,7 +123,7 @@ jobs:
     - get: repo
     - get: keyval
       passed:
-      - accounts-service
+      - quotes-service
       trigger: true
   - task: test-deploy
     privileged: true
