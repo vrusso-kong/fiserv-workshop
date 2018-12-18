@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/fiserv-workshop.iml" filepath="$PROJECT_DIR$/.idea/fiserv-workshop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quotes-gatewauy/quotes-gatewauy.iml" filepath="$PROJECT_DIR$/quotes-gatewauy/quotes-gatewauy.iml" />
     </modules>
   </component>
 </project>
