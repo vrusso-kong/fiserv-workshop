@@ -1,7 +1,7 @@
 ---
 applications:
 - name: quotes
-  path: build/libs/quotes.jar
+  path: build/libs/quotes-service-0.0.1-SNAPSHOT.jar
   services: [ discovery-service, circuit-breaker-dashboard ]
   timeout: 180
   instances: 1

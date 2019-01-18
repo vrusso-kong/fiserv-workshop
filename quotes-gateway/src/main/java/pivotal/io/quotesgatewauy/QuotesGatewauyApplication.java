@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.util.UriComponentsBuilder;
 
-
 import java.net.URI;
 import java.util.Map;
 
@@ -25,7 +24,7 @@ public class QuotesGatewauyApplication {
 				.route("path_to_query", r -> r.path("/{ticker}")
 						.filters(f -> f.setPath("/v1/quotes")
 								.filter(pathToParamGatewayFilterFactory().apply("")))
-						.uri("https://quotes-wise-badger.cfapps.io/"))
+						.uri("https://quotes-tired-zebra.cfapps.io/"))
 				.build();
 	}
 
